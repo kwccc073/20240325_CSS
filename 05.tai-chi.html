@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tai-chi</title>
+    <style>
+        /* 
+        提示：漸層一邊白一邊黑
+        用黑白的圓形蓋在上面
+        */
+
+        /* 大圓 */
+        .taichi {
+            width: 600px;
+            height: 600px;
+            /* 畫一半白一半黑 */
+            background-image: linear-gradient(90deg, white 50%, black 50%);
+            /* 變成圓 */
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            /* 下面四行使置中 */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* 上面四行可改寫為： 
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            margin:auto
+            */
+
+        }
+
+        /* 大黑色圓形 */
+        .taichi::before {
+            content: "";
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;
+            background: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, 0%);
+            /* 也可以改寫為：
+            bottom:0;
+            right:0;
+            left:0
+            margin:auto;
+            */
+        }
+
+        /* 大白色圓形 */
+        .taichi::after {
+            content: "";
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform: translate(-50%, 0%);
+            /* 也可以改寫為：
+            top:0;
+            right:0;
+            left:0
+            margin:auto;
+            */
+        }
+
+
+        /* 定位點點 */
+        .yinyang {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* 黑色圓形上的白色點點 */
+        .yinyang::before {
+            content: "";
+            width: 15%;
+            height: 15%;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 75%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 白色圓形上的黑色點點 */
+        .yinyang::after {
+            content: "";
+            width: 15%;
+            height: 15%;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 25%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="taichi">
+        <div class="yinyang"></div>
+    </div>
+</body>
+
+</html>
