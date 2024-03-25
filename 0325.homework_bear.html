@@ -6,13 +6,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>熊本熊</title>
     <style>
+        .face {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
 
+        /* 右耳 */
+        .face::before {
+            content: "";
+            display: block;
+            width: 20%;
+            height: 20%;
+            border-radius: 50%;
+            background: blue;
+            position: absolute;
+            right: 5%;
+        }
+
+        /* 左耳  */
+        .face::after {
+            content: "";
+            display: block;
+            width: 20%;
+            height: 20%;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            left: 5%;
+        }
+
+        .ears::before {
+            content: "";
+            width: 10%;
+            height: 10%;
+            border-radius: 50%;
+            background: yellow;
+            z-index: 1;
+            position: absolute;
+            left: 5%;
+            transform: translate(50%, 50%);
+        }
+
+        .ears::after {
+            content: "";
+            width: 10%;
+            height: 10%;
+            border-radius: 50%;
+            background: green;
+            position: absolute;
+            right: 5%;
+            transform: translate(-50%, 50%);
+        }
+
+        /* .eyes {
+            position: relative;
+        } */
+
+        .eyes::before {
+            content: "";
+            width: 20%;
+            height: 20%;
+            border-radius: 50%;
+            background: pink;
+            position: absolute;
+            left: 25%;
+            top: 15%;
+            /* transform: translate(50%, 50%); */
+        }
+
+        .eyes::after {
+            content: "";
+            width: 20%;
+            height: 20%;
+            border-radius: 50%;
+            background: pink;
+            position: absolute;
+            right: 25%;
+            top: 15%;
+            /* transform: translate(50%, 50%); */
+        }
+
+        .eyes_black::before {
+            content: "";
+            width: 15%;
+            height: 15%;
+            z-index: 1;
+            border-radius: 50%;
+            background: fuchsia;
+            position: absolute;
+            left: 25%;
+            top: 15%;
+            transform: translate(15%, 20%)
+        }
+
+        .eyes_black::after {
+            content: "";
+            width: 15%;
+            height: 15%;
+            z-index: 1;
+            border-radius: 50%;
+            background: fuchsia;
+            position: absolute;
+            right: 25%;
+            top: 15%;
+            transform: translate(-15%, 20%)
+        }
+
+        .nose_mouth {
+            width: 40%;
+            height: 25%;
+            border-radius: 50%;
+            background: purple;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .nose_mouth:before {
+            content: "";
+            width: 30%;
+            height: 25%;
+            border-radius: 50%;
+            background: grey;
+            z-index: 2;
+            position: absolute;
+            left: 50%;
+            top: 5%;
+            /* top: 50%; */
+            transform: translate(-50%)
+        }
+
+        .nose_mouth::after {
+            content: "";
+            width: 60%;
+            height: 40%;
+            border-radius: 50%;
+            background: sienna;
+            z-index: 2;
+            position: absolute;
+            left: 50%;
+            bottom: 15%;
+            transform: translate(-50%)
+        }
+
+        .blush::before {
+            content: "";
+            width: 25%;
+            height: 25%;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            top: 50%;
+            transform: translate(-40%, -50%)
+        }
+
+        .blush::after {
+            content: "";
+            width: 25%;
+            height: 25%;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(40%, -50%)
+        }
+    </style>
     </style>
 
 </head>
 
 <body>
-
+    <div class="face">
+        <div class="ears"></div>
+        <div class="eyes">
+            <div class="eyes_black"></div>
+        </div>
+        <div class="blush"></div>
+        <div class="nose_mouth"></div>
+    </div>
 </body>
 
 </html>
