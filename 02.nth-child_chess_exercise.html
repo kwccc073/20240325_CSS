@@ -26,20 +26,22 @@
             border: 1px solid #000;
         }
 
-        /* 奇數tr為黑白黑白
-        偶數tr為白黑白黑*/
+        /* 奇數列的奇數欄 */
         tr:nth-child(odd) td:nth-child(odd) {
             background: black;
         }
 
+        /* 奇數列的偶數欄 */
         tr:nth-child(odd) td:nth-child(even) {
             background: white;
         }
 
+        /* 偶數列的奇數欄 */
         tr:nth-child(even) td:nth-child(odd) {
             background: white;
         }
 
+        /* 偶數列的偶數欄 */
         tr:nth-child(even) td:nth-child(even) {
             background: black;
         }
