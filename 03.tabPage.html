@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03.tabPage</title>
+    <style>
+        #mytab {
+            display: flex;
+        }
+
+        label {
+            background: deeppink;
+            padding: 0.5rem 0.5rem;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        .container {
+            width: 600px;
+            padding: 1rem;
+            border: 1px solid #333;
+
+        }
+
+        label:hover {
+            /* 使箭頭變成手指頭 */
+            cursor: pointer;
+            background: #fff;
+        }
+
+        label+label {
+            margin-left: 5px;
+        }
+
+        input {
+            display: none;
+        }
+
+        .content1,
+        .content2,
+        .content3,
+        .content4 {
+            /* 清掉內容 */
+            display: none;
+        }
+
+        /* 選擇誰要顯示 */
+        /* 藉由radio單一選項，當radio被勾選時，同層全體選擇器(~)會找到對應的內容顯示 */
+        #tab1:checked~.content1 {
+            display: block;
+        }
+
+        #tab2:checked~.content2 {
+            display: block;
+        }
+
+        #tab3:checked~.content3 {
+            display: block;
+        }
+
+        #tab4:checked~.content4 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 按鈕點下去出現想要的內容 -->
+    <div id="mytab">
+        <label for="tab1">tab01</label>
+        <label for="tab2">tab02</label>
+        <label for="tab3">tab03</label>
+        <label for="tab4">tab04</label>
+    </div>
+
+    <div class="container">
+        <!-- input切換控制器 -->
+        <input id="tab1" type="radio" name="tabControll" checked>
+        <input id="tab2" type="radio" name="tabControll">
+        <input id="tab3" type="radio" name="tabControll">
+        <input id="tab4" type="radio" name="tabControll">
+        <div class="content1">content1 賺錢全新優勢道路接近烏日大大他們招商，可以說優秀打擊裝置只不過郵遞區號面議，就在右鍵加油證書的確防治觀點處理健康看了您現在一件推坑王，風險進攻鎖定快車添加大部分工人，唯一台中形成某種，試驗都說，還是。</div>
+        <div class="content2">content2 賺錢全新優勢道路接近烏日大大他們招商，可以說優秀打擊裝置只不過郵遞區號面議，就在右鍵加油證書的確防治觀點處理健康看了您現在一件推坑王，風險進攻鎖定快車添加大部分工人，唯一台中形成某種，試驗都說，還是。</div>
+        <div class="content3">content3 賺錢全新優勢道路接近烏日大大他們招商，可以說優秀打擊裝置只不過郵遞區號面議，就在右鍵加油證書的確防治觀點處理健康看了您現在一件推坑王，風險進攻鎖定快車添加大部分工人，唯一台中形成某種，試驗都說，還是。</div>
+        <div class="content4">content4 賺錢全新優勢道路接近烏日大大他們招商，可以說優秀打擊裝置只不過郵遞區號面議，就在右鍵加油證書的確防治觀點處理健康看了您現在一件推坑王，風險進攻鎖定快車添加大部分工人，唯一台中形成某種，試驗都說，還是。</div>
+    </div>
+</body>
+
+</html>
