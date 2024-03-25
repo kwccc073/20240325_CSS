@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 30px;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+
+        h3 {
+            margin: 15px 0;
+            padding-top: 15px;
+        }
+
+        h4 {
+            margin: 1rem 0;
+        }
+
+        /* 全域選擇器 */
+        * {
+            list-style: none;
+            font-family: "微軟正黑體";
+        }
+
+        /* 偽類家族的一種 ，用 : 表示*/
+        /* 根源數=html標籤 */
+        :root {
+            font-style: 1rem;
+        }
+
+        a[title="google"] {
+            color: green;
+            font-size: 2rem;
+        }
+
+        a[title="yahoo"] {
+            color: red;
+            font-size: 2rem;
+        }
+
+        /* 較模糊的選擇，只有指定屬性 */
+        a[title] {
+            color: yellow;
+        }
+
+        /* 多屬性選擇 */
+        a[title="pchome"][href="http:///www.pchome.com"] {
+            color: blue;
+            font-size: 2rem;
+        }
+
+        img[src*="/200/200/"] {
+            border: 10px solid red;
+        }
+
+        img[src^="https://picsum.photos/100/"] {
+            border: 5px solid green;
+        }
+
+        img[src$="random=3"] {
+            border: 5px solid blue;
+        }
+
+        /* a+b 同層相鄰選擇器  */
+        /* 也可改為.abc+p */
+        .case1 h2+p {
+            color: red;
+        }
+
+        /* a~b同層全體選擇器 */
+        .case2 h2~p {
+            color: blue;
+        }
+
+        .menu1 {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: pink;
+            /* overflow: hidden; */
+        }
+
+        .menu1 li {
+            float: left;
+            text-align: center;
+            width: 100px;
+            background: darkmagenta;
+        }
+
+        .menu1 li a {
+            background: deepskyblue;
+            padding: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: 0.5s;
+            /*使滑過去的變化比較柔和*/
+        }
+
+        /* 滑過去會變化 */
+        .menu1 li a:hover {
+            background: #ff0;
+            color: #000;
+        }
+
+        .menu1 li {
+            border-left: 5px solid #333;
+        }
+
+        /* 使第一個沒有 */
+        .menu1 li:first-child {
+            border-left: none;
+        }
+
+        /* first-child較麻煩，用li~li比較（指第二個li開始的左邊都要有border-left） */
+        .menu1 li~li {
+            border-left: 5px solid #333;
+        }
+
+        /* 或是用li+li */
+        /* 兩兩一組去看 */
+        .menu1 li+li {
+            border-left: 5px solid lightseagreen;
+        }
+
+        /* 原本連結的狀態 */
+        /* 不可有空格，有空格會變後代 */
+        a.mylink:link {
+            color: red;
+        }
+
+        /* 拜訪過後的連結狀態 */
+        a.mylink:visited {
+            color: grey;
+            font-size: 2rem;
+        }
+
+        /* 滑鼠移上去的狀態 */
+        a.mylink:hover {
+            color: yellow;
+            font-size: 2rem;
+        }
+
+        /* 點擊不放開的狀態 */
+        a.mylink:active {
+            color: blue;
+        }
+
+        input[type="text"]:focus,
+        .focus:focus {
+            width: 350px;
+            background: red;
+        }
+
+        /* 重置 */
+        input[type="checkbox"],
+        input[type="radio"] {
+            appearance: none;
+            border: 1px solid #333;
+            transform: rotate(45deg);
+            width: 10px;
+            height: 10px;
+        }
+
+        input[type="checkbox"]:checked,
+        input[type="radio"]:checked {
+            background: black;
+        }
+
+        /* 一定要空格 */
+        #child :first-child {
+            color: red;
+        }
+
+        #child :last-child {
+            color: red;
+        }
+
+        /* 選第三個兒子 */
+        #nth-child :nth-child(3) {
+            color: red;
+        }
+
+        /* 奇數兒子 */
+        #nth-child-2 :nth-child(odd) {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* 偶數兒子 */
+        #nth-child-2 :nth-child(even) {
+            color: red;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        #nth-child-3 :nth-child(2n+3) {
+            color: red;
+
+        }
+
+        #type div:first-of-type {
+            color: red;
+        }
+
+        #type div:last-of-type {
+            color: red;
+        }
+
+        #type p:first-of-type {
+            color: blue;
+        }
+
+        #type p:last-of-type {
+            color: blue;
+        }
+
+        #nth-of-type div:nth-of-type(1) {
+            color: red;
+        }
+
+        #nth-of-type p:nth-of-type(1) {
+            color: green;
+        }
+
+        #nth-of-type div:nth-last-of-type(1) {
+            color: blue;
+        }
+
+        #nth-of-type p:nth-last-of-type(1) {
+            color: yellow;
+        }
+
+        #nth-of-type-2 div:nth-of-type(odd) {
+            color: red;
+        }
+
+        #nth-of-type-2 p:nth-of-type(even) {
+            color: green;
+        }
+
+        .menu2 li:not(.no) {
+            color: blue;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>1.屬性選擇器</h1>
+    <h2>單一屬性選擇</h2>
+    <a href="http:///www.google.com" title="google">google</a>
+    <a href="http:///www.yahoo.com" title="yahoo">yahoo</a>
+
+    <h2>多屬性選擇器</h2>
+    <a href="http:///www.pchome.com" title="pchome">pchome</a>
+
+    <h2>[attr*="屬性值"]</h2>
+    <p>例如：img[src*="/200/200/"]</p>
+    <p>選取img元素，其src屬性包含"/200/200/"這個字串的元素</p>
+    <img src="https://picsum.photos/200/200/?random=10">
+
+    <h2>[attr^="屬性值"]</h2>
+    <p>例如：img[src^="https://picsum.photos/100/"]</p>
+    <p>選取img元素，其src屬性開頭為"https://picsum.photos/100/"的元素</p>
+    <img src="https://picsum.photos/100/100/?random=10">
+
+    <h2>[attr$="屬性值"]</h2>
+    <p>例如：img[src$="random=3"]</p>
+    <p>選取img元素，其src屬性結束為"random=3"的元素</p>
+    <img src="https://picsum.photos/100/100/?random=3">
+
+    <hr>
+
+    <!-- a+b -->
+    <h1>2.同層相鄰選擇器 a+b</h1>
+    <p>選擇a元素同一層關係相鄰的b元素</p>
+    <div class="case1">
+        <h2 class="abc">aaa</h2>
+        <p>bbbbbbbbb</p>
+        <p>bbbbbbbbb</p>
+        <p>bbbbbbbbb</p>
+        <p>bbbbbbbbb</p>
+    </div>
+
+    <!-- a~b -->
+    <h1>3.同層全體選擇器 a~b</h1>
+    <p>選擇a元素開始，之後遇到同層級的b元素都是目標</p>
+    <div class="case2">
+        <h2>兄兄兄</h2>
+        <p>弟弟弟弟弟</p>
+        <p>弟弟弟弟弟</p>
+        <p>弟弟弟弟弟</p>
+        <p>弟弟弟弟弟</p>
+    </div>
+
+    <h4>例子：選擇第一個li之後的所有li元素套用樣式</h4>
+    <ul class="menu1">
+        <!-- li*5>a{LIST$} -->
+        <li><a href="#">LIST1</a></li>
+        <li><a href="#">LIST2</a></li>
+        <li><a href="#">LIST3</a></li>
+        <li><a href="#">LIST4</a></li>
+        <li><a href="#">LIST5</a></li>
+    </ul>
+
+    <hr>
+
+    <h1>4.虛擬類別(偽類)選擇器 :(單冒號) - pseudo class</h1>
+    <p>偽類與結構或狀態有關，讓元素在選擇結構、狀態上可以賦予樣式</p>
+    <p>例如 :link, :visited, :hover, :active，它讓CSS對元素擁有更多的操控性</p>
+    <a class="mylink" href="#">我是連結</a>
+
+    <h3>:focus</h3>
+    <p>表單或元素成為焦點時套用樣式</p>
+    <input type="text" tabindex="1">
+    <div class="focus" tabindex="2">focus me</div>
+
+    <h3>:checked</h3>
+    <p>表單勾選 checkbox 或 radio狀態時套用樣式</p>
+    <h4>在checkbox使用</h4>
+    <!-- label標籤中for的值與id相同時，可以點擊文字來勾選 -->
+    <label for="c1">
+        <input type="checkbox" id="c1">寫code
+    </label>
+    <label for="c2">
+        <input type="checkbox" id="c2">覓食
+    </label>
+    <label for="c3">
+        <input type="checkbox" id="c3">睡覺
+    </label>
+
+    <h4>在radio使用</h4>
+    <label for="r1">
+        <input type="radio" id="r1" name="gender">男生
+    </label>
+    <label for="r2">
+        <input type="radio" id="r2" name="gender">女生
+    </label>
+
+    <hr>
+
+    <h2>以元素位置或類型來選擇元素</h2>
+    <h3>:first-child(第一個兒子)、last-child(最後一個兒子)</h3>
+    <div id="child">
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+    </div>
+
+    <h3>nth-child(第幾個兒子)</h3>
+    <p>還有nth-last-child可以從最後面開始選擇</p>
+    <div id="nth-child">
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+    </div>
+
+    <h3>nth-child(odd)奇數兒子、nth-child(even)偶數兒子</h3>
+    <div id="nth-child-2">
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+    </div>
+
+    <h3>nth-child(XN+n) 從第n個兒子開始，重複第XN再做一次選擇</h3>
+    <p>例子： 2N+3，從第3個開始選擇，接著每第2次再選擇一次</p>
+    <div id="nth-child-3">
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+    </div>
+
+    <h3>:first-of-type (選擇同類型中的第一個元素)、:last-of-type (選擇同類型中的最後一個元素)</h3>
+    <p>child 適合用在單一類型的元素項目做選擇，如果混合許多元素項目，需使用type來選擇</p>
+    <div id="type">
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <h3>nth-of-type(選擇同類型第n個元素)</h3>
+    <p>nth-of-type可以從最後面開始選擇類型的第n值</p>
+    <!-- #nth-of-type會得到<div id="nth-of-type"></div> -->
+    <div id="nth-of-type">
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <h3>nth-of-type(odd)、nth-of-type(even)選擇同類型裡的奇數或偶數項目</h3>
+    <div id="nth-of-type-2">
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <div>標題</div>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <h3>:not</h3>
+    <p>反選，否定掉:not()括號中的條件，不選擇它們，其他都要</p>
+    <div class="menu2">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li class="no">Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+    </div>
+</body>
+
+</html>
