@@ -254,6 +254,30 @@
             color: blue;
             font-size: 2rem;
         }
+
+        /* 選擇第一個字母 */
+        #pseudo-element::first-letter {
+            font-size: 5rem;
+            float: left;
+            padding: 0 1rem 1rem 0;
+        }
+
+        /* 選擇第一行 */
+        #pseudo-element::first-line {
+            color: blue;
+        }
+
+        /* ::selection 反白文字時 */
+        #pseudo-element::selection {
+            background: yellow;
+            color: green;
+        }
+
+        /* 當表單欄位有佔位文字時，可以用::placeholder選擇到它 */
+        ::placeholder {
+            text-align: right;
+            padding-right: 1rem;
+        }
     </style>
 </head>
 
@@ -454,6 +478,21 @@
         <li>Lorem ipsum dolor sit amet.</li>
         <li>Lorem ipsum dolor sit amet.</li>
     </div>
+
+    <hr>
+
+    <h1>5.虛擬元素(偽元素) ::雙冒號</h1>
+    <p>
+        偽元素家族是稀有的，::first-letter、::selection、::placeholder，還有兩個最重要的::before、::after
+    </p>
+
+    <h3>::first-letter、::first-line、::selection</h3>
+    <p id="pseudo-element">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates commodi sed expedita. Velit corrupti dolor culpa pariatur error rerum! Eos omnis nulla quae dicta vero, eveniet neque et quaerat! Aspernatur, quo delectus recusandae vero dolore voluptatum repellendus sequi nulla accusamus. Praesentium laboriosam nostrum suscipit dolorem expedita facere officia porro ullam repudiandae quis quos rerum illo magni est tempore dolore, non voluptatum obcaecati odio voluptatibus. Rem veniam eius impedit? Incidunt fugiat nesciunt quis dicta assumenda animi, optio repudiandae accusamus, ex reiciendis unde eos debitis totam! Illum magnam officia quaerat earum possimus tenetur in eum mollitia debitis! Voluptas iusto aperiam dolor perferendis.
+    </p>
+
+    <h3>::placeholder</h3>
+    <input type="text" placeholder="請輸入密碼">
 </body>
 
 </html>
