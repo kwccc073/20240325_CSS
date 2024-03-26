@@ -179,12 +179,28 @@
             transform: translate(40%, -50%)
         }
 
+        /* 左邊鬍子 */
         .beard::before {
             content: "";
-            width: 25%;
-            height: 25%;
+            width: 10%;
+            height: 10%;
+            transform: skew(50deg);
             background: orange;
-            z-index: 1;
+            position: absolute;
+            left: 38%;
+            top: 75%;
+        }
+
+        /* 右邊鬍子 */
+        .beard::after {
+            content: "";
+            width: 10%;
+            height: 10%;
+            transform: skew(-50deg);
+            background: orange;
+            position: absolute;
+            right: 38%;
+            top: 75%;
         }
     </style>
     </style>
@@ -199,6 +215,7 @@
         </div>
         <div class="blush"></div>
         <div class="nose_mouth"></div>
+        <div class="beard"></div>
     </div>
 </body>
 
