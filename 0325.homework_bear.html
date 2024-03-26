@@ -24,7 +24,7 @@
             width: 20%;
             height: 20%;
             border-radius: 50%;
-            background: blue;
+            background: black;
             position: absolute;
             right: 5%;
         }
@@ -36,7 +36,7 @@
             width: 20%;
             height: 20%;
             border-radius: 50%;
-            background: red;
+            background: black;
             position: absolute;
             left: 5%;
         }
@@ -47,11 +47,11 @@
             width: 10%;
             height: 10%;
             border-radius: 50%;
-            background: yellow;
+            background: white;
             z-index: 1;
             position: absolute;
-            left: 5%;
-            transform: translate(50%, 50%);
+            left: 15%;
+            transform: translate(-50%, 50%);
         }
 
         /* 右耳(內) */
@@ -60,7 +60,7 @@
             width: 10%;
             height: 10%;
             border-radius: 50%;
-            background: green;
+            background: white;
             position: absolute;
             right: 5%;
             transform: translate(-50%, 50%);
@@ -72,70 +72,74 @@
             width: 20%;
             height: 20%;
             border-radius: 50%;
-            background: greenyellow;
+            background: white;
             transform-origin: left top;
             position: absolute;
-            left: 25%;
-            top: 15%;
-
-            /* transform: translate(50%, 50%); */
+            left: 15%;
+            top: 5%;
+            transform: translate(50%, 50%);
         }
 
+        /* 右眼 */
         .eyes::after {
             content: "";
             width: 20%;
             height: 20%;
             border-radius: 50%;
-            background: pink;
+            background: white;
             position: absolute;
-            right: 25%;
-            top: 15%;
-            /* transform: translate(50%, 50%); */
+            right: 15%;
+            top: 5%;
+            transform: translate(-50%, 50%);
         }
 
+        /* 左眼(內) */
         .eyes_black::before {
             content: "";
             width: 15%;
             height: 15%;
             z-index: 1;
             border-radius: 50%;
-            background: fuchsia;
+            background: black;
             position: absolute;
             left: 25%;
             top: 15%;
             transform: translate(15%, 20%)
         }
 
+        /* 右眼(內) */
         .eyes_black::after {
             content: "";
             width: 15%;
             height: 15%;
             z-index: 1;
             border-radius: 50%;
-            background: fuchsia;
+            background: black;
             position: absolute;
             right: 25%;
             top: 15%;
             transform: translate(-15%, 20%)
         }
 
+        /* 臉中間圓形 */
         .nose_mouth {
             width: 40%;
             height: 25%;
             border-radius: 50%;
-            background: purple;
+            background: white;
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%)
         }
 
+        /* 鼻子 */
         .nose_mouth:before {
             content: "";
             width: 30%;
             height: 25%;
             border-radius: 50%;
-            background: grey;
+            background: black;
             z-index: 2;
             position: absolute;
             left: 50%;
@@ -144,12 +148,13 @@
             transform: translate(-50%)
         }
 
+        /* 嘴巴 */
         .nose_mouth::after {
             content: "";
             width: 60%;
             height: 40%;
             border-radius: 50%;
-            background: sienna;
+            background: black;
             z-index: 2;
             position: absolute;
             left: 50%;
@@ -157,6 +162,7 @@
             transform: translate(-50%)
         }
 
+        /* 左腮紅 */
         .blush::before {
             content: "";
             width: 25%;
@@ -168,6 +174,7 @@
             transform: translate(-40%, -50%)
         }
 
+        /* 右腮紅 */
         .blush::after {
             content: "";
             width: 25%;
@@ -186,7 +193,7 @@
             width: 10%;
             height: 10%;
             transform: skew(50deg);
-            background: orange;
+            background: white;
             position: absolute;
             left: 38%;
             top: 75%;
@@ -198,7 +205,7 @@
             width: 10%;
             height: 10%;
             transform: skew(-50deg);
-            background: orange;
+            background: white;
             position: absolute;
             right: 38%;
             top: 75%;
