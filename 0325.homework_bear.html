@@ -41,6 +41,7 @@
             left: 5%;
         }
 
+        /* 左耳(內) */
         .ears::before {
             content: "";
             width: 10%;
@@ -53,6 +54,7 @@
             transform: translate(50%, 50%);
         }
 
+        /* 右耳(內) */
         .ears::after {
             content: "";
             width: 10%;
@@ -64,19 +66,18 @@
             transform: translate(-50%, 50%);
         }
 
-        /* .eyes {
-            position: relative;
-        } */
-
+        /* 左眼 */
         .eyes::before {
             content: "";
             width: 20%;
             height: 20%;
             border-radius: 50%;
-            background: pink;
+            background: greenyellow;
+            transform-origin: left top;
             position: absolute;
             left: 25%;
             top: 15%;
+
             /* transform: translate(50%, 50%); */
         }
 
