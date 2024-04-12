@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>針筒</title>
     <style>
-        /* 針筒總範圍 */
-        .a {
+        .container {
             width: 600px;
             height: 100px;
-            background: lightgray;
-            border: 1px solid black;
             position: absolute;
             left: 50%;
             top: 50%;
@@ -38,7 +35,7 @@
             /* 置中 */
             margin: auto;
             position: absolute;
-            background: linear-gradient(90deg, #fff 90%, #000 10%) repeat-x left top/10px 25%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 90%, #000 10%) repeat-x left top/10px 25%;
             z-index: 7;
         }
 
@@ -54,11 +51,21 @@
             z-index: 8;
         }
 
-        /* 針筒最左側 */
+        /* 針筒上的文字 */
+        .MIT {
+            color: grey;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            font-family: '微軟正黑體';
+            font-weight: bolder;
+        }
+
+        /* 最左邊 */
         .d {
             width: 70px;
             height: 100px;
-            border-radius: 25%;
+            border-radius: 15%;
             background-image: linear-gradient(white, lightgrey, white);
             border: 1px solid black;
             position: absolute;
@@ -66,7 +73,7 @@
             z-index: 5;
         }
 
-        /* 針筒左二 */
+        /* 左二 */
         .d::before {
             content: "";
             width: 80px;
@@ -82,8 +89,9 @@
         /* 針筒右側 */
         .e::before {
             content: "";
-            width: 40px;
+            width: 50px;
             height: 60px;
+            border-radius: 15%;
             background-image: linear-gradient(white, lightgrey, white);
             border: 1px solid black;
             position: absolute;
@@ -109,9 +117,9 @@
 
 <body>
     <!-- 提示：跟太極一樣只有用兩個div -->
-    <div class="a">
+    <div class="container">
         <div class="b">
-            <!-- <div class="MIT">Made in Taiwan</div> -->
+            <div class="MIT">Made in Taiwan</div>
         </div>
         <div class="c"></div>
         <div class="d"></div>
